@@ -1,3 +1,23 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #5b4ed1;
+    --secondary-color: #aadc03;
+    --background-color: #121212;
+    --text-color: #ffffff;
+    --small-font: 0.8rem;
+    --medium-font: 1rem;
+    --large-font: 1.2rem;
+    --small-padding: 12px;
+    --medium-padding: 24px;
+    --large-padding: 48px;
+}
+
 html, body {
     height: 100%;
     margin: 0;
@@ -5,33 +25,76 @@ html, body {
     flex-direction: column;
 }
 body {
-    background-color: #121212;
+    background-color: var(--background-color);
     color: #ffffff;
 }
 header, footer {
     background-color: #1f1f1f;
-    padding: 20px;
+    padding: var(--medium-padding);
+    text-align: center;
 }
 a {
     color: #5b4ed1;
+}
+.main-container {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    padding: var(--medium-padding);
+    max-height: 500px;
+}
+.secondary-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: var(--medium-padding);
+    text-align: center;
+    height: 400px;
+}
+.example-container {
+    display: flex;
+    flex-direction: column;
+    padding: var(--medium-padding);
+    text-align: center;
+}
+.left-column {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    justify-content: space-between;
+}
+.right-column {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    justify-content: center;
+}
+.main-title {
+    font-size: var(--medium-font);
+    color: var(--text-color);
+    padding: var(--small-padding);
 }
 a:hover {
     color: #ffffff;
 }
 .project {
     position: relative;
-    margin-bottom: 10px;
-    padding: 10px;
+    padding: var(--medium-padding);
+    width: 200px;
+}
+.project-title {
+    font-size: var(--large-font);
+    color: #5b4ed1;
 }
 .project-description {
     display: none;
-    font-size: 0.8em;
+    font-size: var(--small-font);
     position: absolute;
-    top: 80%;
+    top: 70%;
     left: 0;
-    width: 100%;
-    background-color: #121212;
-    padding-left: 30px;
+    width: 200%;
+    background-color: var(--background-color);
+    padding-left: var(--medium-padding);
     box-sizing: border-box;
     z-index: 1;
 }
@@ -42,15 +105,31 @@ a:hover {
     color: #ffffff;
 }
 .about-description {
-    font-size: 0.8em;
+    font-size: var(--small-font);
     padding-left: 10px;
 }
-.contact {
-    margin-bottom: 200px;
+
+
+.test-box {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(45deg, #5b4ed1, #aadc03);   
+    border-radius: 10px; 
+    padding: var(--small-padding);
+    text-align: center;
+    overflow: clip;
 }
-.project-title {
-    font-size: 1.5em;
-    color: #5b4ed1;
+.mini-box {
+    background: linear-gradient(360deg, #e71801, #dcdc03);   
+    border-radius: 10px; 
+    padding: var(--small-padding);
+    text-align: center;
+}
+.mini-box-container {
+    display: grid;
+    grid-template-columns: 
+    repeat(auto-fit, minmax(80px, 1fr));
+    gap: 5px;
 }
 main {
     flex: 1;
