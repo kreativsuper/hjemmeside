@@ -8,7 +8,7 @@
 /* Custom Properties */
 :root {
     --primary-color: #ffffff;
-    --secondary-color: #d0d0d0;
+    --secondary-color: #000000;
     --background-color: #ebebf9;
     --text-color: #000000;
     --link-color: #5643ff;
@@ -20,6 +20,12 @@
     --small-padding: 12px;
     --medium-padding: 24px;
     --large-padding: 48px;
+
+    /* Hexagon Grid */
+    --hex-size: 6.6vw; /* Size of hexagon sides */
+    --hex-width: calc(var(--hex-size) * 2); /* Width of hexagons */
+    --hex-height: calc(var(--hex-size) * 1.732); /* Height of hexagons (sqrt(3) * size) */
+    --grid-gap: 1px; /* Grid gap between hexagons */
 }
 
 /* Basic Styles */
@@ -47,35 +53,19 @@ a {
 }
 
 /* Layout Styles */
-.main-container {
-    display: flex;
-    flex-direction: row;
-    flex: 1;
-    padding: var(--medium-padding);
-    max-height: 500px;
-}
 
 .main-container {
     display: flex;
     flex-direction: row;
     flex: 1;
     padding: var(--medium-padding);
-    max-height: 500px;
 }
 
 .secondary-container {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding: var(--medium-padding);
     text-align: center;
-    height: 400px;
 }
 
 .example-container {
-    display: flex;
-    flex-direction: column;
-    padding: var(--medium-padding);
     text-align: center;
 }
 
@@ -146,7 +136,6 @@ a:hover {
     border-radius: 10px; 
     padding: var(--small-padding);
     text-align: center;
-    overflow: hidden;
     box-shadow: 15px 15px 10px rgba(183, 181, 210, 0.2);
 }
 
@@ -166,23 +155,21 @@ a:hover {
     justify-content: center;
 }
 
-main {
-    flex: 1;
-}
+
 
 .hex-grid-container {           /* THIS IS FOR HEXAGONAL 5 BY 5 */
-    background-color: #2e322e; /* Light grey background */
+    background-color: var(--secondary-color); /* Light grey background */
     display: grid;
     grid-template-columns: repeat(5, var(--hex-width)); /* 5 hex columns */
     justify-content: center;
     align-content: center;
     clip-path: polygon(
         50% 0%,     /* Top point */
-        86.6% 25%,  /* Top-right point */
-        86.6% 75%,  /* Bottom-right point */
+        80% 25%,  /* Top-right point */
+        80% 75%,  /* Bottom-right point */
         50% 100%,   /* Bottom point */
-        13.4% 75%,  /* Bottom-left point */
-        13.4% 25%   /* Top-left point */
+        20% 75%,  /* Bottom-left point */
+        20% 25%   /* Top-left point */
     );
     padding: 5%;
 }
@@ -191,7 +178,7 @@ main {
 .hexagon {
     width: var(--hex-width);
     height: var(--hex-height);
-    background: black;
+    background: rgb(53, 31, 55);
     display: flex;
     clip-path: polygon(
         25% 0%,
@@ -230,5 +217,16 @@ main {
 }
 
 .hexagon:hover {
-    background: lightgreen;
+    background: rgba(144, 238, 144, 0);
+}
+
+.hexagon:active {
+    background: rgb(0, 242, 48);
+}
+
+
+
+
+main {
+    flex: 1;
 }
