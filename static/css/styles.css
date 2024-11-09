@@ -172,3 +172,65 @@ main {
     flex: 1;
 }
 
+.hex-grid-container {           /* THIS IS FOR HEXAGONAL 5 BY 5 */
+    background-color: #2e322e; /* Light grey background */
+    display: grid;
+    grid-template-columns: repeat(5, var(--hex-width)); /* 5 hex columns */
+    justify-content: center;
+    align-content: center;
+    clip-path: polygon(
+        50% 0%,     /* Top point */
+        86.6% 25%,  /* Top-right point */
+        86.6% 75%,  /* Bottom-right point */
+        50% 100%,   /* Bottom point */
+        13.4% 75%,  /* Bottom-left point */
+        13.4% 25%   /* Top-left point */
+    );
+    padding: 5%;
+}
+
+/* Hexagon shape */
+.hexagon {
+    width: var(--hex-width);
+    height: var(--hex-height);
+    background: black;
+    display: flex;
+    clip-path: polygon(
+        25% 0%,
+        75% 0%,
+        100% 50%,
+        75% 100%,
+        25% 100%,
+        0% 50%
+    );
+    transition: background 0.2s;
+}
+
+/*  HEX GRID SPECIFIC COLUMNS   */
+.hex-col-1 {
+    align-self: center;
+    margin-left: calc(var(--hex-width) * 0.5);
+}
+
+.hex-col-2 {
+    align-self: center;
+    margin-left: calc(var(--hex-width) * 0.25);
+}
+
+.hex-col-3 {
+    align-self: center;
+}
+
+.hex-col-4 {
+    align-self: center;
+    margin-left: calc(var(--hex-width) * -0.25);
+}
+
+.hex-col-5 {
+    align-self: center;
+    margin-left: calc(var(--hex-width) * -0.5);
+}
+
+.hexagon:hover {
+    background: lightgreen;
+}
